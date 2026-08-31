@@ -75,7 +75,7 @@ into the right place with zero rework.
 - Material for MkDocs docs: https://squidfunk.github.io/mkdocs-material/
 - All content pages in later sub-tasks must match the nav entries created here exactly.
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -108,7 +108,7 @@ runtime detail, toolkit tiers)
 5. Write `reference/models.md` — model support table, premium tenant note, context compaction behaviour
 6. Write `reference/index.md` — intro paragraph + table of contents linking all reference pages
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -134,7 +134,7 @@ runtime detail, toolkit tiers)
 3. Write `reference/security.md` — OBO flow with Mermaid sequence diagram (2-step Entra+Salesforce
    and 1-step direct variants), SSO architecture, data protection notes
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -159,7 +159,7 @@ The HOWTO book (Sub-Task 10) covers how to build one; this page covers what it i
    tree, integration pattern guide (atomic tool vs MCP vs workflow wrapper),
    LangFlow/BAW/BAMOE positioning
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -184,7 +184,7 @@ and builders can monitor, debug, and govern agents.
    FinOps, Quality, Reliability, Security), multi-persona support, workspace filtering status,
    external collector integration (Datadog, New Relic, Instana via OTLP)
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -211,7 +211,7 @@ and voice-specific settings.
    SIP trunking vs Genesys connector comparison, Go runtime latency improvement note,
    data residency callout
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -235,7 +235,7 @@ reference.
 2. Write `reference/optimization.md` — JEPA vs ACE comparison table, Mermaid workflow diagram,
    early stopping behaviour, Control Plane drill-down integration
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -259,7 +259,7 @@ place so field engineers can set expectations with customers.
 4. Write `reference/roadmap/voice-roadmap.md`
 5. Write `reference/roadmap/platform-roadmap.md`
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -292,7 +292,7 @@ performance-testing watsonx Orchestrate in production.
    common errors and remediation steps
 5. Write `operations/index.md` — intro and nav table
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -325,7 +325,7 @@ technical spec.
    for the technical spec
 3. Write `howto/index.md` — task index grouped by persona
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -355,7 +355,7 @@ standalone with code examples.
 3. Write `cookbook/index.md` — recipe index grouped by theme
    (Authentication & Security, Workflows, Observability, Performance Testing, Channels)
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -398,7 +398,7 @@ has touched every major feature area. On-Prem differences appear as callout boxe
 4. Write Labs 9–11 (advanced: voice/channels, load testing, external agents)
 5. Write Lab 12 (capstone: end-to-end enterprise use case tying all labs together)
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
@@ -421,7 +421,7 @@ correct, and the site is ready to deploy to GitHub Pages.
 4. Write `docs/about.md` — source attribution, disclaimer that roadmap content reflects
    session dates and may have changed
 
-**Status:** [ ] pending
+**Status:** [x] complete — strict build passes (zero errors), broken anchor fixed, `docs/about.md` written with full session attribution and roadmap disclaimer, `.gitignore` added, all content committed to git.
 
 ---
 
