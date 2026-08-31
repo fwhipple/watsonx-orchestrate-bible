@@ -1,6 +1,126 @@
 # Agentic Workflows
 
-This page is under construction.
+Agentic Workflows are structured, stateful, deterministic orchestration sequences in watsonx Orchestrate. Unlike an autonomous agent that reasons freely about what to do next, a workflow follows a predefined graph of nodes in an explicit order — with conditional branching, loops, and human approval gates — guaranteeing that the same business process executes the same way every time.
 
-!!! info "Reference Book"
-    This page is part of the [Reference](index.md) book. For step-by-step build instructions see [Build an Agentic Workflow](../howto/build-agentic-workflow.md) in the HOWTO book.
+Workflows are the right tool when **what must happen** is fully known at design time and **auditability** is non-negotiable. They complement agents rather than replace them: complex enterprise solutions frequently use both — a workflow for the structured compliance-sensitive path, and an agent for the conversational, unstructured periphery.
+
+---
+
+## Characteristics
+
+| Property | Agentic Workflow | Autonomous Agent |
+|----------|-----------------|-----------------|
+| **Execution path** | Deterministic — defined at design time | Probabilistic — decided at runtime by the LLM |
+| **State** | Persisted at every node; survives interruption, restarts, and long pauses | Session-scoped; lost on session end |
+| **Duration** | Can be seconds, hours, days, or months | Bounded by session timeout |
+| **Auditability** | Full step-by-step execution log | Trace-level — tool calls and LLM turns |
+| **Human involvement** | First-class via User Activity nodes | Possible but not natively orchestrated |
+| **Suitable for** | Compliance, approvals, SLA-bound processes, straight-through processing | Dynamic reasoning, unstructured input, multi-domain Q&A |
+
+---
+
+## Node Types
+
+Workflows are built by connecting nodes in the Workflow Builder. Each node type has a specific role.
+
+### Tool Call Nodes
+
+Execute an external operation and wait for the result before proceeding. Supports all three tool types:
+
+- **OpenAPI** — calls a REST endpoint defined by an OpenAPI spec
+- **Python** — executes a Python script in a sandboxed container
+- **MCP** — calls a tool exposed by a Model Context Protocol server
+
+Tool call nodes are synchronous by default. For long-running external operations, a callback pattern (see below) allows the workflow to suspend and resume when the result is ready.
+
+### Agent Nodes
+
+Embed a bounded LLM reasoning step inside the workflow. An agent node invokes an autonomous agent as a sub-step, passes context to it, waits for its response, and feeds the result into the next node.
+
+Use agent nodes when one step of a deterministic process requires natural language understanding, summarisation, or flexible data extraction that would be impractical to express as hard-coded logic.
+
+### User Activity Nodes
+
+Pause the workflow and require input or approval from a human before proceeding. Three sub-types:
+
+| Sub-type | Description |
+|----------|-------------|
+| **Form** | Presents a structured form to the user; workflow resumes when the form is submitted |
+| **Approval** | Presents a binary approve/reject decision; workflow routes conditionally based on the outcome |
+| **Message** | Delivers information to the user and continues; no user action required |
+
+User Activity nodes are the foundation of **Human-in-the-Loop (HITL)** architectures.
+
+### Conditional Logic Nodes
+
+Route execution to different branches based on evaluated conditions. Conditions can test:
+
+- Output fields from a preceding tool call node
+- User inputs from a preceding User Activity node
+- Context variables set earlier in the workflow
+
+Multiple branches can diverge from a single condition node; only one branch executes per instance.
+
+### Loop Nodes
+
+Repeat a sub-graph of nodes until an exit condition is satisfied. Loops include a configurable **iteration guard** — a maximum iteration count — to prevent infinite loops in production.
+
+### Wait Nodes
+
+Suspend workflow execution for a defined duration or until an external event (delivered via webhook callback) signals continuation. Wait nodes enable true long-running workflows that persist for hours, days, or weeks without consuming active compute resources.
+
+---
+
+## Scheduling
+
+Workflows can be triggered on a schedule using natural language scheduling syntax (e.g., "Every Monday at 9am", "First business day of each month").
+
+!!! note "Minimum schedule interval"
+    The minimum scheduling interval is **5 minutes**. Schedules more frequent than 5 minutes are not supported.
+
+---
+
+## Callbacks for Long-Running Operations
+
+When a workflow node calls an external system that takes an indeterminate amount of time to complete (e.g., a document processing pipeline, an external approval system, a batch job), the workflow can use the callback pattern:
+
+1. The workflow sends a request to the external system, including a **callback URL** generated by the platform
+2. The workflow enters a Wait node and suspends
+3. When the external system completes, it POSTs the result to the callback URL
+4. The platform resumes the workflow from the Wait node, injecting the callback payload as the node output
+
+This eliminates the need for polling and allows workflows to remain paused for arbitrarily long durations.
+
+---
+
+## Digression Handling
+
+!!! note "In development"
+    Digression handling is currently in development. When released, it will allow a workflow to detect when a user has shifted topic mid-execution, queue the digression for later resolution, and resume the original workflow after the digression is handled.
+
+---
+
+## Channel Support Matrix
+
+User Activity nodes behave differently across channels. Not all input types are available in all channels:
+
+| Channel | Form | Approval | Message | File Upload |
+|---------|------|----------|---------|-------------|
+| Web chat (embedded) | Yes | Yes | Yes | Yes |
+| Slack | Yes | Yes | Yes | Limited |
+| Microsoft Teams | Yes | Yes | Yes | Yes |
+| WhatsApp | No | Yes (text-based) | Yes | No |
+| SMS | No | Yes (text-based) | Yes | No |
+| Voice / Phone | No | Yes (spoken) | Yes | No |
+| API (headless) | Yes (JSON) | Yes (JSON) | Yes | Yes |
+
+---
+
+## Related References
+
+- [Agent vs Workflow](agent-vs-workflow.md) — Decision framework for choosing between agents and workflows
+- [Tool Types](tool-types.md) — Technical spec for OpenAPI, Python, and MCP tool nodes
+- [Channels](channels.md) — Channel-specific behaviour and SSO configuration
+- [HOWTO: Build an Agentic Workflow](../howto/build-agentic-workflow.md) — Step-by-step guide to building a workflow
+- [Cookbook: Approval Workflow](../cookbook/agentic-workflow-approval.md) — Human-in-the-loop approval workflow recipe
+- [Lab 5: Agentic Workflows](../labs/lab-05-agentic-workflows.md) — Hands-on lab building a multi-step workflow
