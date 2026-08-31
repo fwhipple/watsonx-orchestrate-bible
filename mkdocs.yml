@@ -1,0 +1,131 @@
+site_name: watsonx Orchestrate Bible
+site_description: "Authoritative technical reference for IBM watsonx Orchestrate — field engineers and technical sellers"
+site_author: IBM Technology
+repo_url: https://github.com/your-org/watsonx-orchestrate-bible
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Reference:
+    - Overview: reference/index.md
+    - ADLC: reference/adlc.md
+    - Agent Building Blocks: reference/agent-building-blocks.md
+    - Tool Types: reference/tool-types.md
+    - Platform Editions: reference/platform-editions.md
+    - Models: reference/models.md
+    - Memory: reference/memory.md
+    - Connections: reference/connections.md
+    - Security: reference/security.md
+    - Agentic Workflows: reference/agentic-workflows.md
+    - Agent vs Workflow: reference/agent-vs-workflow.md
+    - Observability: reference/observability.md
+    - Control Plane: reference/control-plane.md
+    - Channels: reference/channels.md
+    - Voice: reference/voice.md
+    - Evaluation: reference/evaluation.md
+    - Optimization: reference/optimization.md
+    - Roadmap:
+      - Overview: reference/roadmap/index.md
+      - Platform Roadmap: reference/roadmap/platform-roadmap.md
+      - Channels Roadmap: reference/roadmap/channels-roadmap.md
+      - Voice Roadmap: reference/roadmap/voice-roadmap.md
+  - Operations:
+    - Overview: operations/index.md
+    - Installation: operations/installation.md
+    - Architecture: operations/architecture.md
+    - Load Testing: operations/load-testing.md
+    - Troubleshooting: operations/troubleshooting.md
+  - HOWTO:
+    - Overview: howto/index.md
+    - Create an Agent: howto/create-agent.md
+    - Add a Tool: howto/add-tool.md
+    - Configure a Connection: howto/configure-connection.md
+    - Enable Memory: howto/enable-memory.md
+    - Build an Agentic Workflow: howto/build-agentic-workflow.md
+    - Set Up Voice: howto/set-up-voice.md
+    - Run an Evaluation: howto/run-evaluation.md
+    - Export Traces: howto/export-traces.md
+  - Cookbook:
+    - Overview: cookbook/index.md
+    - Slack + Okta + Workday SSO: cookbook/slack-sso-workday.md
+    - OBO Flow with Salesforce: cookbook/obo-salesforce.md
+    - Python MCP Tool: cookbook/mcp-tool-python.md
+    - LangGraph External Agent: cookbook/langgraph-external-agent.md
+    - Approval Workflow: cookbook/agentic-workflow-approval.md
+    - Load Test with K6: cookbook/load-test-k6.md
+    - Custom Observability: cookbook/custom-observability.md
+  - Labs:
+    - Overview: labs/index.md
+    - Lab 1 - Your First Agent: labs/lab-01-first-agent.md
+    - Lab 2 - Tools Deep Dive: labs/lab-02-tools-deep-dive.md
+    - Lab 3 - Connections & Auth: labs/lab-03-connections-auth.md
+    - Lab 4 - Agentic Memory: labs/lab-04-agentic-memory.md
+    - Lab 5 - Agentic Workflows: labs/lab-05-agentic-workflows.md
+    - Lab 6 - Multi-Agent Collaboration: labs/lab-06-multi-agent.md
+    - Lab 7 - Evaluation & Optimization: labs/lab-07-evaluation.md
+    - Lab 8 - Observability: labs/lab-08-observability.md
+    - Lab 9 - Voice & Channels: labs/lab-09-voice-channels.md
+    - Lab 10 - Load Testing: labs/lab-10-load-testing.md
+    - Lab 11 - External Agents & Control Plane: labs/lab-11-external-agents.md
+    - Lab 12 - Capstone: labs/lab-12-capstone.md
+  - About: about.md
