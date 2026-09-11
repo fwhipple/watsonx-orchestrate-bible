@@ -61,6 +61,11 @@ markdown_extensions:
   - toc:
       permalink: true
 
+copyright: "© IBM Technology · Made by humans, augmented by Bob"
+
+extra:
+  generator: false
+
 extra_css:
   - stylesheets/extra.css
 
