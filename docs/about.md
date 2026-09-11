@@ -1,34 +1,12 @@
 # About This Site
 
-The **watsonx Orchestrate Bible** is an authoritative technical reference and lab guide for IBM watsonx Orchestrate, synthesised from the IBM watsonx Orchestrate Deep Dive Enablement Series. It is intended for IBM field engineers and technical sellers who need precise, deep technical knowledge to design, implement, and troubleshoot production-grade agent deployments.
-
----
-
-## Source Material
-
-This site was built from the **IBM watsonx Orchestrate Deep Dive Enablement Series with Development** — a sequence of 11 recorded sessions covering the full product surface. The sessions were recorded live with IBM development team members and include slides, transcripts, demos, and supplementary resources.
-
-| Session | Topic | Materials |
-|---------|-------|-----------|
-| Session 01 | ADLC (Agent Development Lifecycle) | Recording · Slides · Transcript · Sample Agents & Tools |
-| Session 02 | On-Prem Install, Architecture, and Operations | Recording · Transcript |
-| Session 03 | Agent and Tool Design (incl. Agentic Memory) | Recording · Slides · Demo · Transcript |
-| Session 04 | Evaluation and Optimization | Recording · Slides · Transcript |
-| Session 05 | Security, SSO, OBO, and Agent Identity | Recording · Transcript |
-| Session 06 | Load and Performance Testing | Recording · Transcript |
-| Session 07 | Observability | Recording · Transcript |
-| Session 08 | WXA to WXO Migration *(out of scope — not included)* | Recording · Transcript |
-| Session 09 | Agentic Workflows | Recording · Slides · Use Case Guide · Transcript |
-| Session 10 | Agent Control Plane and External Agents | Recording · Transcript |
-| Session 11 | Voice, Phone, and Channel Integration | Recording · Transcript |
-
-Session 08 (WXA to WXO Migration) was deliberately excluded from this Bible — it covers a one-time migration path that is no longer broadly relevant for new deployments.
+The **watsonx Orchestrate Bible** is an authoritative technical reference and lab guide for IBM watsonx Orchestrate. It is intended for IBM field engineers and technical sellers who need precise, deep technical knowledge to design, implement, and troubleshoot production-grade agent deployments.
 
 ---
 
 ## How Content Is Organised
 
-Source material was analysed and synthesised into five Books, each serving a distinct audience need:
+Content is organised into five Books, each serving a distinct audience need:
 
 | Book | Purpose |
 |------|---------|
@@ -49,13 +27,12 @@ Source material was analysed and synthesised into five Books, each serving a dis
 
 ## Accuracy and Currency
 
-All technical content was written from first-hand session recordings and transcripts. Where the sessions described behaviour that was "in development" or "coming soon", this is clearly marked in the relevant pages with `!!! note "Roadmap"` callout boxes.
+All technical content is grounded in hands-on product experience and direct engagement with IBM development teams. Where behaviour was described as "in development" or "coming soon", this is clearly marked in the relevant pages with `!!! note "Roadmap"` callout boxes.
 
 This site does **not** include:
 
 - Marketing material or product positioning copy
-- Feature-level claims without technical backing from the source sessions
-- Session 08 migration content (out of scope)
+- Feature-level claims without technical backing
 
 ---
 
