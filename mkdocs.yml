@@ -61,7 +61,7 @@ markdown_extensions:
   - toc:
       permalink: true
 
-copyright: "© IBM Technology · Made by humans, augmented by Bob"
+copyright: '© IBM Corporation &nbsp;·&nbsp; Made by humans, augmented by <a href="https://bob.ibm.com" target="_blank">IBM Bob</a>'
 
 extra:
   generator: false
